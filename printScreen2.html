@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>BUNGEL.O.MAT</title>
+    <link rel="stylesheet" href="reverse.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+
+    <script type="module">
+        import * as bpac from './bpac.js';
+
+        const DATA_FOLDER = "C:\\Users\\flolu\\Documents\\Brother bPAC3 SDK\\Templates\\";
+        //const DATA_FOLDER = "http://your_server/";
+        //------------------------------------------------------------------------------
+        //   Function name   :   DoPrint
+        //   Description     :   Print, Preview Module
+        //------------------------------------------------------------------------------
+        window.DoPrint = async function DoPrint(strExport) {
+            console.log("double check");
+            if (bpac.IsExtensionInstalled() == false) {
+                const agent = window.navigator.userAgent.toLowerCase();
+                const ischrome = ((agent.indexOf('chrome') !== -1) && (agent.indexOf('edge') === -1) && (agent.indexOf('opr') === -1));
+                if (ischrome)
+                    window.open('https://chrome.google.com/webstore/detail/ilpghlfadkjifilabejhhijpfphfcfhb', '_blank');
+                return;
+            }
+
+            try {
+                let clickedNrSpecifications = localStorage.getItem("clickedNrSpecifications");
+                const files = ["gezelligheidsvoucher.lbx", "gezelligheidsvoucher2.lbx", "gezelligheidsvoucher3.lbx", "gezelligheidsvoucher4.lbx"];
+                const strPath = DATA_FOLDER + files[clickedNrSpecifications - 1];
+                const objDoc = bpac.IDocument;
+                const ret = await objDoc.Open(strPath);
+                let localCart = JSON.parse(localStorage.getItem("cart"));
+                let nameFriend = localStorage.getItem("nameFriend");
+                if (ret == true) {
+                    if (localCart.length === 1) {
+                        const activity = await objDoc.GetObject("objActivity");
+                        activity.Text = localCart[0].name;
+                        //objDoc.GetObject("objActivity").Text = localCart[0].name;
+                        console.log("here");
+                    } else if (localCart.length === 2) {
+                        const activity = await objDoc.GetObject("objActivity");
+                        activity.Text = localCart[0].name;
+                        const location = await objDoc.GetObject("objLocation");
+                        location.Text = localCart[1].name;
+                    } else if (localCart.length === 3) {
+                        const activity = await objDoc.GetObject("objActivity");
+                        activity.Text = localCart[0].name;
+                        const location = await objDoc.GetObject("objLocation");
+                        location.Text = localCart[1].name;
+                        const consumption = await objDoc.GetObject("objConsumption");
+                        consumption.Text = localCart[2].name;
+                    } else if (localCart.length === 4) {
+                        const activity = await objDoc.GetObject("objActivity");
+                        activity.Text = localCart[0].name;
+                        console.log("activity: " + JSON.stringify(activity) + " " + localCart[0].name);
+                        const location = await objDoc.GetObject("objLocation");
+                        location.Text = localCart[1].name;
+                        console.log("location: " + JSON.stringify(location) + " " + location );
+                        const consumption = await objDoc.GetObject("objConsumption");
+                        consumption.Text = localCart[2].name;
+                        console.log("consumption: " + consumption );
+                        const celebration = await objDoc.GetObject("objCelebration");
+                        celebration.Text = localCart[3].name;
+                        console.log("celebration: " + celebration );
+
+                    }
+
+                    //dus hij pakt de bovenste, loopt de hele code af en laad de laatste er in
+                    // function myCalc(show){
+                    //     show= objDoc.GetObject("objExpirationDate");
+                    //     show.Text = "geldig t/m 30-07-2024";
+                    // }
+                    //
+                    // async function myCalc2(){
+                    //     let activity= await objDoc.GetObject("objActivity");
+                    //     activity.Text = localCart[0].name;
+                    // }
+                    //myCalc();
+                    //myCalc2();
+
+                    // const activity = await objDoc.GetObject("objActivity");
+                    // activity.Text = localCart[0].name;
+
+
+                    const nameF = await objDoc.GetObject("objName");
+                    nameF.Text = "Speciaal ontworpen voor " + nameFriend;
+
+                    // const [activity, expirationDate] = await Promise.all([myCalc(), objDoc.GetObject("objExpirationDate")]);
+                    // activity.Text = localCart[0].name;
+                    //expirationDate.Text = "geldig t/m 30-07-2024";
+
+
+                    // let activity = await objDoc.GetObject("objActivity");
+                    // //activity.Text = localCart[0].name;
+
+
+
+                    const expirationDate = await objDoc.GetObject("objExpirationDate");
+                    expirationDate.Text = "geldig t/m 02-12-2024"
+
+                    const ticketNumber = await objDoc.GetObject("objNumber");
+                    ticketNumber.Text = "nr. 003";
+                    //objDoc.GetObject("objNumber").Text = "nr. 003";
+
+                    //let nameF = await objDoc.GetObject("objName");
+                    //nameF.Text = "Speciaal ontworpen voor " + nameFriend;
+                    //objDoc.GetObject("objName").Text = "Floor";
+                    //theForm.txtWidth.value = await objDoc.Width;
+
+                    if (strExport == "") {
+                        objDoc.StartPrint("", 0);
+                        objDoc.PrintOut(1, 0);
+                        objDoc.EndPrint();
+                        document.getElementById("printBut")
+                            .disabled = "disabled";
+                    } else {
+                        const image = await objDoc.GetImageData(4, 0, 100);
+                        const img = document.getElementById("previewArea");
+                        img.src = image;
+                    }
+
+                    objDoc.Close();
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    </script>
+</head>
+<body onload="">
+<div class="container">
+    <div class="menuPayment">
+        <h2>De voucher wordt nu geprint. Hartelijk dank voor je bestelling!</h2>
+        <img id='previewArea' class="previewVoucher"></img>
+        <h2><b style="color:lightgray">Klik op de knoppen</b> om de voucher te printen en vervolgens de bestelling af te ronden. Vergeet je mobiel niet!</h2>
+        <input id="printBut" class="button" type="button"  value="Print voucher!" onclick="DoPrint('');storeInJSON()">
+        <input type="button" class="button" value="Klaar!" onclick="touchToEnd()">
+
+    </div>
+</div>
+<script src="./main.js"></script>
+</body>
+</html>

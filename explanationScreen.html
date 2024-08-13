@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUNGEL.O.MAT</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Add smooth scrolling to all links
+        $("a").on('click', function (event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+        $(".content").fadeIn(8000);
+        $(".button").fadeIn(8000);
+    });
+</script>
+<body>
+<div class="container">
+    <form onsubmit="submitStartScreen()" action="choosePlan.html">
+<!--    <form onsubmit="submitStartScreen();">-->
+    <div class="menu" id="explanation1">
+        <div class="w3-light-grey">
+            <div class="w3-container w3-grey" style="width:33%; font-family: Red Hat Display">kalibratie: 33%</div>
+        </div>
+        <h2 style="background-color:#00B050;font-weight: bold; font-family: Red Hat Display;border-radius: 25px;color:black;">Voordat je je eigen voucher samen kan stellen gaan we eerst samen opzoek naar je Bungels, volg de stappen en vul de vragen in</h2>
+        <img
+                src="./images/pijl.gif"
+                alt="pijl"
+                class="img"
+                width="20%"
+        />
+        <!--        <p>Hoe leren we het beste omgaan met sociale media zoals Instagram? We vinden onszelf nog steeds allemaal-->
+<!--            verslaafd en vinden over het algemeen dat we teveel tijd op dit soort platformen doorbrengen. Ondertussen-->
+<!--            overschatten we vaak hoeveel minuten per dag we er gemiddeld daadwerkelijk aan besteden.-->
+<!--            We hebben er een negatief beeld over, terwijl het achterliggende idee, het gemakkelijk op de hoogte blijven-->
+<!--            van het reilen en zeilen van vrienden onafhankelijk van interactie, tijd en ruimte, iets is wat we zouden-->
+<!--            mogen omarmen.-->
+<!--            Hoe kunnen we onze Instagram tijdlijn dan waardevoller maken? Misschien door opzoek te gaan naar frictie en-->
+<!--            keuzes te maken wie we wel en niet willen blijven volgen.-->
+<!--            Laten we beginnen met wat vragen om zo tot een persoonlijk keuze pakket te komen, afgesteld op jouw Instagram gebruik. </p>-->
+            <p class="content">Op welk platform spendeer je de meeste tijd en heb je de meeste sociale contacten in de jaren van gebruik verzameld?</p>
+            <select class="content" name="platform" id="platformChoice" style="font-family: Red Hat Display" required>
+                <option value="Insta">Instagram</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Facebook">Facebook</option>
+            </select>
+            <br><br>
+        <a href="#explanation2" class="button">Volgende</a>
+<!--        <br>-->
+<!--        <br>-->
+<!--        <img-->
+<!--                src="./images/tijdlijn.gif"-->
+<!--                alt="timeline"-->
+<!--                class="img"-->
+<!--                width="80%"-->
+<!--        />-->
+<!--            <input class="button" type="submit" onclick="goToExplanationScreen2()" value="Volgende">-->
+    </div>
+
+    <div class="menu" id="explanation2">
+        <div class="w3-light-grey">
+            <div class="w3-container w3-grey" style="width:66%; font-family: Red Hat Display">kalibratie: 66%</div>
+        </div>
+<!--        <img-->
+<!--                src="./images/totaalnetwerkmaat.gif"-->
+<!--                alt="totalNetwork"-->
+<!--                class="img"-->
+<!--                width="80%"-->
+<!--        />-->
+<!--        <p>Open de ... app en ga naar je connecties.</p>-->
+<!--        <p>Hoeveel connecties heb jij in de jaren verzameld?</p>-->
+<!--        <input type="number" id="nrOfYearsActive" value="300"><br><br>-->
+<!--        <p>Hoeveel connecties heb jij in de jaren verzameld?</p>-->
+<!--        <input type="number" id="nrOfYearsActive" value="300"><br><br>-->
+        <h2 style="background-color:#00B050;border-radius: 25px;font-family: Red Hat Display; color:black;">Open de app en scroll door je lijst van connecties</h2>
+<!--        <p>Je volgerslijst op Instagram, connecties op LinkedIn en vrienden op Facebook</p>-->
+        <img
+                src="./images/pijl.gif"
+                alt="pijl"
+                class="img"
+                width="5%"
+        />
+        <p class="content">Hoeveel mensen uit deze lijst gok je dat connecties zijn die jij kent en jou ook kennen?</p>
+        <input class="content" style="font-family: Red Hat Display" type="number" id="nrOfContacts" required>
+        <p>Met wie van deze mensen zou je wel weer eens contact willen opnemen en dus deze voucher voor willen maken?<br>Typ naam hieronder.</p>
+        <input style="font-family: Red Hat Display" type="text" id="nameFriend" required>
+        <br><br>
+        <h2 style="background-color:#00B050;border-radius: 25px;font-family: Red Hat Display;color:black;">Zie je in de lijst veel sociale contacten
+            die je al langer dan een jaar niet hebt gesproken, maar wel nog posts van kijkt? Dit zijn je bungels</h2>
+        <img
+                src="./images/pijl.gif"
+                alt="pijl"
+                class="img"
+                width="5%"
+        />
+        <p>Hoeveel mensen in je lijst zijn Bungels?</p>
+        <input style="font-family: Red Hat Display" type="number" id="nrOfBungels" required><br><br>
+<!--        <input class="button" type="submit" onclick="location.href='#explanation3'" value="Volgende">-->
+        <a href="#explanation3" class="button" >Volgende</a>
+    </div>
+
+    <div class="menu" id="explanation3">
+        <div class="w3-light-grey">
+            <div class="w3-container w3-grey" style="width:99%;font-family: Red Hat Display;">kalibratie: 99%</div>
+        </div>
+        <h2 style="background-color:#00B050;border-radius: 25px;font-family: Red Hat Display;color:black;">Scroll nogmaals door de lijst</h2>
+<!--        <img-->
+<!--                src="./images/totaalnetwerkmaat.gif"-->
+<!--                alt="totalNetwork"-->
+<!--                class="img"-->
+<!--                width="80%"-->
+<!--        />-->
+        <p>Hoeveel bungels ben jij bereid te droppen om een voucher te maken voor de gekozen vriendschap?</p>
+        <input type="number" id="nrOfDropBungels" min="1" style="font-family: Red Hat Display" required><br><br>
+<!--        <a href="#explanation4" class="button">Volgende</a>-->
+        <input class="button" type="submit" value="Volgende">
+    </div>
+
+<!--    <div class="menu" id="explanation4">-->
+<!--        <div class="w3-light-grey">-->
+<!--            <div class="w3-container w3-grey" style="width:80%">kalibratie: 80%</div>-->
+<!--        </div>-->
+<!--        <img-->
+<!--                src="./images/totaalnetwerkmaat.gif"-->
+<!--                alt="totalNetwork"-->
+<!--                class="img"-->
+<!--                width="80%"-->
+<!--        />-->
+<!--&lt;!&ndash;        <p>Open de app en scroll door je volgerslijst, hoeveel zijn sociale contacten? En zie je veel contacten&ndash;&gt;-->
+<!--&lt;!&ndash;        die je al langer dan een jaar niet hebt gesproken, maar wel nog posts van kijkt?</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Hoeveel mensen hiervan zijn mensen die jij kent en jou ook kennen?</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="number" id="nrOfContacts" value="300">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Hoeveel mensen hiervan zijn mensen zijn Bungels?</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="number" id="nrOfBungels" value="300"><br><br>&ndash;&gt;-->
+<!--        <a href="#explanation5" class="button">Volgende</a>-->
+<!--    </div>-->
+
+<!--    <div class="menu" id="explanation5">-->
+<!--        <div class="w3-light-grey">-->
+<!--            <div class="w3-container w3-grey" style="width:99%">kalibratie: 99%</div>-->
+<!--        </div>-->
+<!--        <img-->
+<!--                src="./images/totaalnetwerkmaat.gif"-->
+<!--                alt="totalNetwork"-->
+<!--                class="img"-->
+<!--                width="80%"-->
+<!--        />-->
+<!--        <p>Het idee van deze BUNGEL.O.MAT is dat je je netwerk op kan schonen door verwaterde contacten te ontvolgen. Om zo niet alleen je Instagram tijd beter te besteden, maar ook tijd en mentale capaciteit vrij te maken voor een vriend die je vaker zou willen zien. De voucher maak je ter ere van jullie vriendschap en betaal je door bungels niet langer te laten bungelen.</p>-->
+<!--        <p>Ben je een sociaal contact tegen gekomen in je volgerslijst die je wel weer eens zou willen zien? Typ de naam van dit persoon in en begin aan het maken van jullie voucher. </p>-->
+<!--        <input type="text" id="nameFriend" value="300"><br><br>-->
+<!--        <a href="./choosePlan.html" class="button" onclick="submitStartScreen()">Volgende</a>-->
+<!--    </div>-->
+    </form>
+</div>
+<script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+#map {
+    touch-action: pan-y;
+}
+:root{
+    --main-color: #FEC42C;
+    --main-background: #F2F2F2;
+    --main-background-color: lightgray;
+    --main-color-green: #00B050;
+}
+
+body{
+    font-family: "Red Hat Display";
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    margin: auto;
+    overflow: scroll;
+    background-color: var(--main-color-green);
+    text-color: var(--main-background);
+    text-align: center;
+
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+h2{
+    font-optical-sizing: auto;
+    font-style: normal;
+    weight: 700;
+    font-size: 2em;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+button{
+    margin: 30px 10px 10px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    border: solid 1px var(--main-color);
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+}
+
+input.button{
+    margin: 30px 10px 10px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    border: solid 1px var(--main-color);
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.19);
+}
+
+input.button:hover{
+    color:black;
+}
+
+.previewVoucher{
+    width: 25%;
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.6s;
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+
+}

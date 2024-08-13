@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUNGEL.O.MAT</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="createSelectSpecifications(selSpec);updateMyVoucher();updateMyPlan();updateCartOverview()">
+<div class="container">
+    <div class="menu">
+        <div class="specificationMenu">
+            <div id="activityVoucher">
+                <h5>Activiteit</h5>
+            </div>
+            <i id="activityVoucherArrow" class="fa fa-arrow-right" style="font-size:30px"></i>
+            <div id="locationVoucher">
+                <h5>Locatie</h5>
+            </div>
+            <i id="locationVoucherArrow" class="fa fa-arrow-right" style="font-size:30px"></i>
+            <div id="consumptionVoucher">
+                <h5>Consumptie</h5>
+            </div>
+            <i id="consumptionVoucherArrow" class="fa fa-arrow-right" style="font-size:30px"></i>
+            <div id="celebrationVoucher">
+                <h5>Eerbetoon</h5>
+            </div>
+        </div>
+        <h1>Kies één optie per categorie </h1>
+        <!--            div: selectSpecifications 1. selection of specification-->
+        <div class="selectMenu">
+            <!--            2. specification: doel + activiteit + -->
+        </div>
+        <div class="navigateButton">
+            <span><button id="prevButton" onclick="prevSpec()">Previous</button></span>
+            <span><button id="nextButton" onclick="nextSpec()" >Next</button></span>
+        </div>
+    </div>
+
+
+    <div class="orderOverview">
+        <h2>Mijn <br>Pakket</h2>
+        <div class="myCredits">
+<!--            <div class="mySelCredits"></div>-->
+<!--            <h2 style="font-weight:500;">฿ 0.00</span> </h2>-->
+            <button onclick="alterPlan()">Wijzig</button>
+        </div>
+        <h2>Mijn <br>Voucher</h2>
+        <div class="myVoucher"></div>
+        <div class="readyToOrder">
+<!--            <h4 style="color:#7F7F7F;font-size:1.2em;">Totaal</h4>-->
+<!--            <h3><span class="total">฿ 0.00</span></h3>-->
+            <button onclick="confirmOrder()">Klaar</button>
+        </div>
+    </div>
+
+
+    <div id="cartOverview" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="alterOrder()">&times;</span>
+                <h2>Overzicht bestelling</h2>
+            </div>
+            <div class="modal-bodyOrder">
+<!--                <p>Gepersonaliseerde voucher incl.:</p>-->
+<!--                <p id="cartGoal"></p>-->
+<!--                <p id="cartActivity"></p>-->
+<!--                <p id="cartLocation"></p>-->
+<!--                <p id="cartTime"></p>-->
+
+<!--                <p>Te besteden binnen 2 weken</p><br>-->
+
+<!--                <p>voor 7 Bungels</p>-->
+            </div>
+            <span><button onclick="paymentPopUp()">Naar betaling</button></span>
+        </div>
+    </div>
+    <div id="paymentPopUp" class="modalPopUpPayment">
+
+        <!-- Modal content -->
+        <div class="modal-contentPopUp">
+            <span class="close" onclick="alterOrderPopUp()">&times;</span>
+            <div class="modal-bodyPayment">
+                <h1>Betaling</h1>
+                <img
+                        src="./images/telefoonhouderschaduw.gif"
+                        alt="telefoonInHouder"
+                        class="img"
+                        width="70%"
+                />
+                <p id="textPayment"></p>
+                <p>Druk op klaar als je de transactie hebt voltooid!</p>
+            <div class="navigateButton">
+                <span><button id="cancelPayment" class="cancelPayment" onclick="alterOrderPopUp()">Annuleer</button></span>
+                <span><button id="confirmPayment" class="payment" onclick="goToPrintVoucher()" >Klaar met ontvolgen</button></span>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div id="alterPlanPopUp" class="modalPopUp">
+
+        <!-- Modal content -->
+        <div class="modal-contentPopUp">
+            <span class="close" onclick="alterOrderPopUp()">&times;</span>
+            <div class="modal-bodyAlterPlan">
+                <p>Weet je zeker dat je je pakket wilt wijzigen?</p>
+                <span><button onclick=" goBackToChoosePlan()">Ja</button></span>
+            </div>
+        </div>
+    </div>
+    <div id="notDonePopUp" class="modalPopUp">
+
+        <!-- Modal content -->
+        <div class="modal-contentPopUp">
+            <span class="close" onclick="alterOrderPopUp()">&times;</span>
+            <div class="modal-bodyNotDone">
+                <p>Oeps! Je hebt nog niet alle specificaties gekozen. Maak een keuze voor de resterende specificaties!</p>
+                <span><button onclick="alterOrderPopUp()">Vervolg bestelling</button></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="./main.js"></script>
+</body>
+</html>

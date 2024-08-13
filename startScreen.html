@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUNGEL.O.MAT</title>
+    <link rel="stylesheet" href="reverse.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+</head>
+<body onload = "overwriteObjectToIntialValues()">
+<div class="container">
+    <div class="menu">
+        <h1>Check ons aanbod voor jou aan de hand van de volgende drie stappen: </h1>
+        <div class="specificationMenu">
+            <form id="userSpecify">
+                <p>Instagram Username: </p>
+                <input type="text" id="username" value="janjansen1"><br><br>
+<!--                gender? -->
+                <p>Hoeveel mensen op Instagram volg je maar spreek je nooit meer?</p>
+                <input type="number" id="bungelNr" name="10"><br><br>
+                <label for="minNr">Hoeveel tijd spendeer jij dagelijks op Instagram?</label><br><br>
+                <select name="minNr" id="minNr">
+                    <option value="S"> < 15 min/dag</option>
+                    <option value="M">15 min/dag - 20 min/dag</option>
+                    <option value="L">30 min/dag - 1 uur/dag</option>
+                    <option value="XL">> 1 uur/dag</option>
+                </select><br><br>
+                <input id="btnSubmit" type="button" value="Submit" onclick="submitInfo()">
+            </form>>
+        </div>
+    </div>
+</div>
+<script src="./main.js"></script>
+</body>
+</html>

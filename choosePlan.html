@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BUNGEL.O.MAT</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet">
+</head>
+<body onload="choosePlan()">
+<div class="container">
+    <div class="headPlanMenu">
+        <h1 id ="titleChoosePlan"></h1>
+        <p>Hoeveel Bungels wil jij zo loslaten in ruil voor jullie voucher? </p>
+        <div class="planMenu">
+        </div>
+        <!--        div toe te voegen die advies geeft op basis van startScreen info en kan dan ook weer gebruikt worden voor selectie specificaties-->
+        <!--        <div class="specificationMenu">-->
+        <!--            <div class="subscription" id="starter">-->
+        <!--                <h3>Kleine schoonmaak</h3>-->
+        <!--                <p>Om te beginnen.</p>-->
+        <!--                <small>From</small>-->
+        <!--                <span class="price">$ 12.50/mo</span>-->
+        <!--                <h5>Voucher is inclusief: </h5>-->
+        <!--                <ul>-->
+        <!--                    <li>1 specificatie van activiteit mogelijk</li>-->
+        <!--                    <li>Geldigheidsduur van 2 weken</li>-->
+        <!--                </ul>-->
+        <!--                <h5>Add-ons</h5>-->
+        <!--                <p>Not available</p>-->
+        <!--                <button id="smlClean" onclick="chosenPlan(2, false, false)">Select Plan</button>-->
+        <!--            </div>-->
+        <!--            <div class="subscription" id="growth">-->
+        <!--                <h3>Schoonmaak</h3>-->
+        <!--                <p>For growing your brand.</p>-->
+        <!--                <small>From</small>-->
+        <!--                <span class="price">$ 21.20/mo</span>-->
+        <!--                <h5>Voucher is inclusief: </h5>-->
+        <!--                <ul>-->
+        <!--                    <li>3 specificaties van activiteit mogelijk</li>-->
+        <!--                    <li>Geldigheidsduur van 6 weken</li>-->
+        <!--                    <li>300 Posts</li>-->
+        <!--                </ul>-->
+        <!--                <h5>Add-ons</h5>-->
+        <!--                <p>Mogelijkheid tot personalisatie van voucher</p>-->
+        <!--                <button id="avgClean" onclick="chosenPlan(3, true, false)">Select Plan</button>-->
+        <!--            </div>-->
+        <!--            <div class="subscription" id="advanced">-->
+        <!--                <h3>Grote schoonmaak</h3>-->
+        <!--                <p>Voor veel vrije tijd</p>-->
+        <!--                <small>From</small>-->
+        <!--                <span class="price">$ 33.75/mo</span>-->
+        <!--                <h5>Voucher is inclusief: </h5>-->
+        <!--                <ul>-->
+        <!--                    <li>Alle specificaties van activiteit mogelijk</li>-->
+        <!--                    <li>Geldigheidsduur van 8 weken</li>-->
+        <!--                    <li>Unlimited Posts</li>-->
+        <!--                </ul>-->
+        <!--                <h5>Add-ons</h5>-->
+        <!--                <p>Mogelijkheid tot personalisatie van voucher</p>-->
+        <!--                <p>Verzoek tot herhaal afspraak</p>-->
+
+        <!--                <button id="bigClean" onclick="chosenPlan(4, true, true)">Select Plan</button>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+<!--        <div class="selectMenu">-->
+<!--            &lt;!&ndash;            2. specification: doel + activiteit + &ndash;&gt;-->
+<!--        </div>-->
+    </div>
+    <div class="navigateButton">
+        <span><button id="goBack" class="cancelPayment" onclick="alterInputPopUp()">Ga terug</button></span>
+    </div>
+<!--    <div class="orderOverview">-->
+<!--        <h2>Mijn <br>Pakket</h2>-->
+<!--        <div class="myCredits">-->
+<!--            &lt;!&ndash;            <h2 style="font-weight:500;">฿ 0.00</span> </h2>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <span><button onclick="alterPlan()">Wijzig</button></span>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <h2>Mijn <br>Voucher</h2>-->
+<!--        <div class="myVoucher"></div>-->
+<!--        <div class="readyToOrder">-->
+<!--            <h4 style="color:#7F7F7F;font-size:1.2em;">Totaal</h4>-->
+<!--            <h3><span class="total">฿ 0.00</span></h3>-->
+<!--            <span><button>Bestel</button></span>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div id="alterInputPopUp" class="modalPopUp">
+
+        <!-- Modal content -->
+        <div class="modal-contentPopUp">
+            <span class="close" onclick="cancelAlterInputPopUp()">&times;</span>
+            <div class="modal-bodyAlterInput">
+                <p>Weet je zeker dat je terug wilt? Je zult alle antwoorden opnieuw moeten invullen</p>
+                <span><button onclick=" goBackToExplanation()">Ja</button></span>
+            </div>
+        </div>
+        </div>
+</div>
+<script src="./main.js"></script>
+</body>
+</html>
